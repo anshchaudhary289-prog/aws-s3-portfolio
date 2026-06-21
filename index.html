@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ansh Chaudhary | Cloud Engineer</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+  a { color: #FF9900; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  nav { background: #161b22; border-bottom: 1px solid #30363d; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; height: 60px; position: sticky; top: 0; z-index: 100; }
+  nav .logo { font-size: 18px; font-weight: 600; color: #FF9900; letter-spacing: 1px; }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul li a { color: #8b949e; font-size: 14px; transition: color 0.2s; }
+  nav ul li a:hover { color: #FF9900; text-decoration: none; }
+
+  .hero { text-align: center; padding: 90px 2rem 70px; border-bottom: 1px solid #21262d; }
+  .hero-badge { display: inline-block; background: #1c2d1c; border: 1px solid #2ea043; color: #3fb950; font-size: 13px; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px; }
+  .hero h1 { font-size: 48px; font-weight: 700; color: #ffffff; margin-bottom: 8px; }
+  .hero h1 span { color: #FF9900; }
+  .hero .tagline { font-size: 20px; color: #8b949e; margin-bottom: 30px; }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: #FF9900; color: #0d1117; padding: 10px 24px; border-radius: 6px; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+  .btn-primary:hover { background: #e68a00; text-decoration: none; }
+  .btn-secondary { border: 1px solid #30363d; color: #e6edf3; padding: 10px 24px; border-radius: 6px; font-size: 14px; transition: border-color 0.2s; }
+  .btn-secondary:hover { border-color: #FF9900; text-decoration: none; }
+
+  section { padding: 60px 2rem; max-width: 900px; margin: 0 auto; }
+  .section-label { font-size: 12px; letter-spacing: 2px; color: #FF9900; text-transform: uppercase; margin-bottom: 8px; }
+  .section-title { font-size: 28px; font-weight: 600; color: #ffffff; margin-bottom: 40px; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .about-card { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 24px; }
+  .about-card h3 { font-size: 15px; color: #FF9900; margin-bottom: 10px; }
+  .about-card p { font-size: 14px; color: #8b949e; line-height: 1.7; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+  .skill-card { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 18px 16px; text-align: center; transition: border-color 0.2s; }
+  .skill-card:hover { border-color: #FF9900; }
+  .skill-icon { font-size: 28px; margin-bottom: 8px; }
+  .skill-name { font-size: 13px; color: #e6edf3; font-weight: 500; }
+  .skill-level { font-size: 11px; color: #8b949e; margin-top: 4px; }
+
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .project-card { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 24px; transition: border-color 0.2s; }
+  .project-card:hover { border-color: #FF9900; }
+  .project-tag { display: inline-block; background: #1f2a1a; color: #3fb950; font-size: 11px; padding: 2px 10px; border-radius: 20px; margin-bottom: 12px; }
+  .project-card h3 { font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 8px; }
+  .project-card p { font-size: 13px; color: #8b949e; line-height: 1.6; margin-bottom: 16px; }
+  .project-tech { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+  .tech-pill { background: #1c2333; border: 1px solid #30363d; color: #8b949e; font-size: 11px; padding: 2px 10px; border-radius: 20px; }
+  .project-link { font-size: 13px; color: #FF9900; }
+
+  .hackathon-card { background: #161b22; border: 1px solid #21262d; border-left: 3px solid #FF9900; border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+  .hackathon-card h3 { font-size: 16px; color: #ffffff; margin-bottom: 6px; }
+  .hackathon-card .meta { font-size: 12px; color: #8b949e; margin-bottom: 10px; }
+  .hackathon-card p { font-size: 13px; color: #8b949e; }
+
+  .contact-box { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 40px; text-align: center; }
+  .contact-box p { color: #8b949e; margin-bottom: 24px; font-size: 15px; }
+  .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .contact-link { display: flex; align-items: center; gap: 8px; background: #0d1117; border: 1px solid #30363d; color: #e6edf3; padding: 10px 20px; border-radius: 6px; font-size: 14px; transition: border-color 0.2s; }
+  .contact-link:hover { border-color: #FF9900; text-decoration: none; }
+
+  footer { text-align: center; padding: 30px; border-top: 1px solid #21262d; color: #8b949e; font-size: 13px; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 32px; }
+    .about-grid, .projects-grid { grid-template-columns: 1fr; }
+    nav ul { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">AC ☁️</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">&#x1F7E2; Open to Opportunities — 2027 Batch</div>
+  <h1>Ansh <span>Chaudhary</span></h1>
+  <p class="tagline">B.Tech CSE Student · AWS Cloud Enthusiast · MIET Meerut</p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn-primary">View Projects</a>
+    <a href="#contact" class="btn-secondary">Get in Touch</a>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="section-title">Who I Am</div>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>&#x1F393; Education</h3>
+      <p>B.Tech in Computer Science & Engineering at MIET Meerut (AKTU), Batch 2023–2027. Currently in 6th Semester with a focus on cloud technologies.</p>
+    </div>
+    <div class="about-card">
+      <h3>&#x1F3AF; Focus Area</h3>
+      <p>Specializing in AWS Cloud Computing and aiming for a Cloud/DevOps engineering role. Actively studying AWS Solutions Architecture.</p>
+    </div>
+    <div class="about-card">
+      <h3>&#x1F4DA; Learning</h3>
+      <p>Enrolled in AWS Academy Cloud Architecting (Course ID: 156141). Working towards AWS Certified Solutions Architect — Associate.</p>
+    </div>
+    <div class="about-card">
+      <h3>&#x1F4BB; Interests</h3>
+      <p>Cloud Infrastructure, DevOps, Python scripting, and building scalable systems. Participated in hackathons exploring AI/ML APIs.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <div class="section-title">Tech Stack</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">☁️</div>
+      <div class="skill-name">AWS S3</div>
+      <div class="skill-level">Static Hosting, Storage</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🖥️</div>
+      <div class="skill-name">AWS EC2</div>
+      <div class="skill-level">Linux, Apache, Web Server</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🏗️</div>
+      <div class="skill-name">Cloud Architecting</div>
+      <div class="skill-level">VPC, IAM, Load Balancing</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🐍</div>
+      <div class="skill-name">Python</div>
+      <div class="skill-level">Scripting, APIs</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔐</div>
+      <div class="skill-name">Cybersecurity</div>
+      <div class="skill-level">Basics, IAM Policies</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">Gen AI APIs</div>
+      <div class="skill-level">Gemini API</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <div class="section-title">What I've Built</div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <span class="project-tag">AWS</span>
+      <h3>S3 Static Portfolio Website</h3>
+      <p>Hosted a static portfolio website on AWS S3 with public access policy and static website hosting enabled. Configured bucket settings and deployed HTML/CSS files.</p>
+      <div class="project-tech">
+        <span class="tech-pill">AWS S3</span>
+        <span class="tech-pill">HTML/CSS</span>
+        <span class="tech-pill">Static Hosting</span>
+      </div>
+      <a href="https://github.com/anshchaudhary289-prog/aws-s3-portfolio" class="project-link">&#x1F517; View on GitHub</a>
+    </div>
+    <div class="project-card">
+      <span class="project-tag">AWS</span>
+      <h3>EC2 Web Server Deployment</h3>
+      <p>Launched an EC2 Linux instance, installed Apache web server, configured security groups for HTTP/SSH access, and deployed a basic web application.</p>
+      <div class="project-tech">
+        <span class="tech-pill">AWS EC2</span>
+        <span class="tech-pill">Linux</span>
+        <span class="tech-pill">Apache</span>
+        <span class="tech-pill">Security Groups</span>
+      </div>
+      <a href="https://github.com/anshchaudhary289-prog/aws-ec2-webserver" class="project-link">&#x1F517; View on GitHub</a>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px;">
+    <div class="section-label" style="margin-bottom: 8px;">Hackathons</div>
+    <div class="hackathon-card">
+      <h3>HackerRank Orchestrate Hackathon</h3>
+      <div class="meta">June 2026 · Multi-modal AI System</div>
+      <p>Worked on a damage claim verification system using Google Gemini API for multi-modal input processing (image + text analysis). Built in Python as part of a team hackathon challenge.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="section-title">Get In Touch</div>
+  <div class="contact-box">
+    <p>Currently looking for cloud engineering internships and placement opportunities for 2027 batch. Feel free to reach out!</p>
+    <div class="contact-links">
+      <a href="mailto:anshchaudhary280@gmail.com" class="contact-link">📧 Email</a>
+      <a href="https://github.com/anshchaudhary289-prog" class="contact-link">💻 GitHub</a>
+      <a href="https://www.hackerrank.com/" class="contact-link">🏆 HackerRank</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built by Ansh Chaudhary · B.Tech CSE · MIET Meerut · 2027 Batch</p>
+</footer>
+
+</body>
+</html>
