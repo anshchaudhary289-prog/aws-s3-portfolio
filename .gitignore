@@ -1,0 +1,13 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local env / AWS config must never be committed
+.env
+.aws/
+
+# Temp files
+*.tmp
+*.log
